@@ -1,0 +1,23 @@
+{
+  "name": "fetch-cli-tool",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "bin": {
+    "mycli": "./src/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.3",
+    "commander": "^13.1.0",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
