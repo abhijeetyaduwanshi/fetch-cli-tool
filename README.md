@@ -100,6 +100,25 @@ To execute integration tests:
 ```
 npm test
 ```
+**Output:**
+```
+> fetch-cli-tool@1.0.0 test
+> jest
+
+ PASS  tests/test.js
+  Geo CLI Integration Tests
+    ✓ should return valid coordinates for a city and state (204 ms)
+    ✓ should return valid coordinates for a ZIP code (174 ms)
+    ✓ should handle multiple locations (247 ms)
+    ✓ should return an error for AK and HI (139 ms)
+    ✓ should return an error for an invalid location (167 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        1.046 s, estimated 2 s
+Ran all test suites.
+```
 
 ## Constraints and error
 - If AK (Alaska) or HI (Hawaii) is entered, an error will be thrown:
