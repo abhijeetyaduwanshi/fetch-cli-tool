@@ -17,8 +17,9 @@ async function fetchCoordinates(location) {
         } else {
             // Handle city/state lookup
             const [city, state] = location.split(',').map(s => s.trim().toUpperCase());
-            if (['HI', 'AK'].includes(state)) {
+            if (['AK', 'HI'].includes(state)) {
                 console.error(`Error: ${state} is not supported.`);
+                console.log('--------------------------------');
                 process.exit(1);
             }
             url = `${BASE_URL}/direct?q=${encodeURIComponent(location)},US&limit=1&appid=${API_KEY}`;

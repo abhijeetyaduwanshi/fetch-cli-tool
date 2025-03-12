@@ -1,13 +1,13 @@
 # Fetch Geolocation CLI Utility
 
 ## Overview
-This command-line utility is for Fetch take home project that fetches geographic coordinates (latitude and longitude) based on United States city/state or ZIP code inputs. It queries the OpenWeather Geocoding API and returns location details. The utility supports multiple location inputs and enforces restrictions for HI (Hawaii) and AK (Alaska).
+This command-line utility is for Fetch take home project that fetches geographic coordinates (latitude and longitude) based on United States city/state or ZIP code inputs. It queries the OpenWeather Geocoding API and returns location details. The utility supports multiple location inputs and enforces restrictions for AK (Alaska) and HI (Hawaii).
 
 ## Features
 - Fetches latitude and longitude for United States city/state or ZIP code.
 - Supports multiple location queries at once.
 - Uses OpenWeather Geocoding API.
-- Rejects locations in HI (Hawaii) and AK (Alaska).
+- Rejects locations in AK (Alaska) and HI (Hawaii).
 - Provides clear output in the terminal.
 
 ## Folder Structure
@@ -29,7 +29,7 @@ fetch-cli-tool/
   - Valid city/state lookup
   - Valid ZIP code lookup
   - Multiple location queries
-  - Handling of unsupported states (HI (Hawaii) and AK (Alaska))
+  - Handling of unsupported states (AK (Alaska) and HI (Hawaii))
   - Invalid location handling
 
 ## Prerequisites
@@ -39,7 +39,7 @@ fetch-cli-tool/
 ## Installation
 1. Clone the repository:
    ```
-   git clone -path
+   git clone https://github.com/abhijeetyaduwanshi/fetch-cli-tool.git
    cd fetch-cli-tool
    ```
 2. Install dependencies:
@@ -101,16 +101,39 @@ To execute integration tests:
 npm test
 ```
 
-## Constraints
-- If HI (Hawaii) or AK (Alaska) is entered, an error will be thrown:
+## Constraints and error
+- If AK (Alaska) or HI (Hawaii) is entered, an error will be thrown:
   ```
+  mycli "Alaska, AK"
   mycli "Honolulu, HI"
   ```
   **Output:**
   ```
+  Fetching coordinates for: Alaska, AK...
+  Error: AK is not supported.
+  --------------------------------
+  ```
+
+  ```
+  Fetching coordinates for: Honolulu, HI...
   Error: HI is not supported.
+  --------------------------------
   ```
-- If an invalid location is provided, the utility will return:
+
+- If an invalid location or location outside of United States is provided, the utility will return error:
   ```
-  No results found for: InvalidCity, XY
+  mycli "Name, XX"
+  mycli "Rio Grande, RS"
+  ```
+  **Output:**
+  ```
+  Fetching coordinates for: Name, XX...
+  No results found for: Name, XX
+  --------------------------------
+  ```
+
+  ```
+  Fetching coordinates for: Rio Grande, RS...
+  No results found for: Rio Grande, RS
+  --------------------------------
   ```

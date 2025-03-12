@@ -30,9 +30,9 @@ describe('Geo CLI Integration Tests', () => {
         expect(stdout).toMatch(/Latitude: \d+\.\d+, Longitude: -?\d+\.\d+/);
     });
 
-    test('should return an error for HI and AK', async () => {
-        await expect(execPromise(`node ${CLI_PATH} "Honolulu, HI"`)).rejects.not.toBe(0);
+    test('should return an error for AK and HI', async () => {
         await expect(execPromise(`node ${CLI_PATH} "Anchorage, AK"`)).rejects.not.toBe(0);
+        await expect(execPromise(`node ${CLI_PATH} "Honolulu, HI"`)).rejects.not.toBe(0);
     });    
 
     test('should return an error for an invalid location', async () => {
